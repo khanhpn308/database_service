@@ -48,6 +48,11 @@ CREATE TABLE IF NOT EXISTS `demo_iot`.`device` (
   `password` VARCHAR(45) NULL,
   `status` ENUM('active', 'deactive') NULL,
   `user_device_asignment_id` INT NOT NULL,
+  `location` VARCHAR(255) NULL,
+  `device_type` VARCHAR(45) NULL,
+  `last_reading_at` DATETIME(6) NULL,
+  `last_reading_value` DECIMAL(12, 4) NULL,
+  `last_reading_unit` VARCHAR(32) NULL,
   PRIMARY KEY (`device_id`))
 ENGINE = InnoDB;
 
