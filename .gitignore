@@ -1,0 +1,14 @@
+# Environment files
+.env
+.env.local
+.env.production
+
+# Local database artifacts (if used later)
+mysql_data/
+data/
+
+# Logs and OS/IDE
+*.log
+.idea/
+.vscode/
+.DS_Store
