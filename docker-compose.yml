@@ -20,6 +20,12 @@ services:
       timeout: 5s
       retries: 30
       start_period: 20s
+    networks:
+      - iot-net
 
 volumes:
   mysql_data:
+
+networks:
+  iot-net:
+    external: true
