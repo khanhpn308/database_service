@@ -1,4 +1,4 @@
--- Migration 004: static columns on device (location, device_type).
+-- Migration 004: static columns on device (location, device_type, topic).
 -- Live readings are not stored in DB; use MQTT/payload in the app layer.
 --
 -- Usage:
@@ -19,6 +19,11 @@ BEGIN
   IF (SELECT COUNT(*) FROM information_schema.COLUMNS
       WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'device' AND COLUMN_NAME = 'device_type') = 0 THEN
     ALTER TABLE `device` ADD COLUMN `device_type` VARCHAR(45) NULL;
+  END IF;
+
+  IF (SELECT COUNT(*) FROM information_schema.COLUMNS
+      WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'device' AND COLUMN_NAME = 'topic') = 0 THEN
+    ALTER TABLE `device` ADD COLUMN `topic` VARCHAR(255) NULL;
   END IF;
 END$$
 
