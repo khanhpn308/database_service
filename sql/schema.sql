@@ -80,6 +80,35 @@ CREATE TABLE IF NOT EXISTS `demo_iot`.`device_authorization` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `demo_iot`.`test_logs`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `demo_iot`.`test_logs` (
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `protocol` VARCHAR(32) NOT NULL,
+  `version` INT NULL,
+  `message_len` INT NULL,
+  `message` TEXT NULL,
+  `node_id_len` INT NULL,
+  `node_id` VARCHAR(128) NOT NULL,
+  `gateway_id_len` INT NULL,
+  `gateway_id` VARCHAR(128) NOT NULL,
+  `event_timestamp_ms` BIGINT NULL,
+  `gateway_timestamp_ms` BIGINT NULL,
+  `mark_time_ms` BIGINT NOT NULL,
+  `delay_node_to_gateway_ms` BIGINT NULL,
+  `delay_gateway_to_server_ms` BIGINT NULL,
+  `delay_node_to_server_ms` BIGINT NULL,
+  `rssi` INT NULL,
+  `src_mac` VARCHAR(17) NULL,
+  `topic` VARCHAR(255) NULL,
+  `raw_hex` TEXT NULL,
+  `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  INDEX `idx_test_logs_lookup` (`gateway_id` ASC, `node_id` ASC, `protocol` ASC, `created_at` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
