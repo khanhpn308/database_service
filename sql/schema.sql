@@ -51,6 +51,7 @@ CREATE TABLE IF NOT EXISTS `demo_iot`.`device` (
   `location` VARCHAR(255) NULL,
   `device_type` VARCHAR(45) NULL,
   `topic` VARCHAR(255) NULL,
+  `publish_topic` VARCHAR(255) NULL,
   PRIMARY KEY (`device_id`))
 ENGINE = InnoDB;
 
